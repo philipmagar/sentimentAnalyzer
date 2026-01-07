@@ -6,23 +6,6 @@ A powerful web application for analyzing sentiment in product reviews using a cu
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-red.svg)
 ![NumPy](https://img.shields.io/badge/NumPy-1.24+-green.svg)
 
-## 📸 Screenshots
-
-### Main Interface
-![Main Interface](screenshots/main_interface.png)
-*The main interface showing the sentiment analyzer with text input area and model details*
-
-### Sentiment Analysis Result
-![Analysis Result](screenshots/analysis_result.png)
-*Example of sentiment analysis result showing positive sentiment with confidence score*
-
-### Model Metrics Sidebar
-![Model Metrics](screenshots/model_metrics.png)
-*Sidebar displaying model performance metrics including confusion matrix, accuracy, precision, recall, and F1-score*
-
-### Preprocessing Visualization
-![Preprocessing](screenshots/preprocessing.png)
-*Detailed view of text preprocessing showing tokenization, token IDs, and vocabulary mapping*
 
 ## ✨ Features
 
