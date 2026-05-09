@@ -20,16 +20,15 @@ from model_utils import (
 # -----------------
 st.set_page_config(
     page_title="Sentiment Analysis",
-    page_icon="🧠",
     layout="centered"
 )
 
-st.title("🧠 Transformer Based Product Sentiment Analyzer")
+st.title("Transformer Based Product Sentiment Analyzer")
 
 # -----------------
 # Sidebar: ONLY Sequence Length Hyperparameter
 # -----------------
-st.sidebar.header("⚙️ Model Hyperparameter")
+st.sidebar.header("Model Hyperparameter")
 
 seq_len_input = st.sidebar.number_input(
     "Sequence Length (Max Tokens)",
@@ -64,7 +63,7 @@ label_map = st.session_state.label_map
 # -----------------
 # ✅ MODEL DETAILS (ADDED HERE)
 # -----------------
-st.subheader("🧠 Model Details")
+st.subheader("Model Details")
 
 try:
     model_details = {
@@ -83,13 +82,13 @@ except Exception as e:
 # -----------------
 # Display Active Hyperparameter
 # -----------------
-st.subheader("🔧 Active Hyperparameter")
+st.subheader("Active Hyperparameter")
 st.json({"seq_len": current_seq_len})
 
 # -----------------
 # Sidebar: Model Metrics
 # -----------------
-st.sidebar.header("📊 Model Metrics")
+st.sidebar.header("Model Metrics")
 metrics_path = "model_metrics.pkl"
 
 if os.path.exists(metrics_path):
@@ -140,7 +139,7 @@ text_input = st.text_area(
 # -----------------
 # Analyze Button & Cleaning
 # -----------------
-if st.button("🔍 Analyze Sentiment"):
+if st.button("Analyze Sentiment"):
     if not text_input.strip():
         st.warning("Please enter some text.")
         st.stop()
@@ -164,7 +163,7 @@ if st.button("🔍 Analyze Sentiment"):
     # -----------------
     # Preprocessing Display
     # -----------------
-    st.subheader("🧹 Preprocessing")
+    st.subheader("Preprocessing")
     st.code(" ".join(cleaned))
 
     unk_id = vocab.get("<UNK>", -1)
@@ -189,21 +188,21 @@ if st.button("🔍 Analyze Sentiment"):
     # -----------------
     # Final Prediction Result
     # -----------------
-    st.subheader("📌 Result")
+    st.subheader("Result")
 
     sentiment = result["sentiment"]
     confidence = result["confidence"] * 100
 
     if sentiment == "Positive":
-        st.success(f"Sentiment: {sentiment} 👍")
+        st.success(f"Sentiment: {sentiment}")
     else:
-        st.error(f"Sentiment: {sentiment} 👎")
+        st.error(f"Sentiment: {sentiment}")
 
     st.metric("Confidence", f"{confidence:.2f}%")
 
     # -----------------
     # Class Probabilities
     # -----------------
-    st.subheader("📈 Class Probabilities")
+    st.subheader("Class Probabilities")
     for label, prob in result["probabilities"].items():
         st.write(f"{label}: {prob * 100:.2f}%")

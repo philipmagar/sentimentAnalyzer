@@ -151,7 +151,7 @@ def load_transformer_model(checkpoint_path="transformer_checkpoint.pkl", overrid
         return model_local, vocab_local, label_map_local
 
     except Exception as e:
-        print(f"❌ Error loading model: {e}")
+        print(f"Error loading model: {e}")
         return None, {}, {0: "Negative", 1: "Positive"}
 
 
